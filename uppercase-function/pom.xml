@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.javaclub</groupId>
-    <artifactId>uppercase-function</artifactId>
+    <artifactId>uppercase</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>uppercase-function</name>
+    <name>uppercase</name>
     <description></description>
 
     <properties>
