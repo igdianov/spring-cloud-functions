@@ -1,4 +1,5 @@
 target/
+riff.toml
 
 ### STS ###
 .apt_generated

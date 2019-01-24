@@ -7,6 +7,10 @@
     <groupId>org.javaclub</groupId>
     <artifactId>spring-cloud-functions</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
-
+    <modules>
+        <module>reverse-function</module>
+        <module>uppercase-function</module>
+    </modules>
 </project>
