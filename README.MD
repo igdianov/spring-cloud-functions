@@ -23,8 +23,18 @@ riff function create reverse --image $DOCKER_ID/reverse \
  --invoker java --handler=reverse
  
  
-riff function create reverse --image $DOCKER_ID/uppercase \
+riff function create uppercase --image $DOCKER_ID/uppercase \
   -l ./uppercase-function \
   --artifact reverse-0.0.1-SNAPSHOT.jar \
   --invoker java --handler=uppercase
 ```
+
+
+## Delete the function
+
+```bash
+riff service delete reverse
+
+riff service delete uppercase
+```
+
