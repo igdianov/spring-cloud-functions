@@ -15,8 +15,8 @@ public class UppercaseFunctionApplication {
     @Bean
     public Function<String, String> uppercase() {
         return input -> {
-            log.info("reverse input {}", input);
-            return new StringBuilder(input.toUpperCase()).reverse().toString();
+            log.info("uppercase input {}", input);
+            return new StringBuilder(input.toUpperCase()).toString();
         };
     }
 

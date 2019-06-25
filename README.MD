@@ -1,4 +1,51 @@
-# Spring cloud functions
+# Spring cloud functions with knative
+
+## Install knative at docker-for-mac
+
+https://knative.dev/docs/install/knative-with-minikube/
+
+# Spring cloud functions with docker
+
+## Local build
+
+```bash
+cd reverse-function
+docker build -t uppercase-function .
+```
+
+and
+
+```bash
+cd reverse-function
+docker build -t reverse-function .
+```
+
+## Run
+
+```bash
+docker run -p8081:8080 uppercase-function:latest 
+```
+
+and 
+
+```bash
+docker run -p8082:8080 reverse-function:latest 
+```
+
+## Invoke the function
+
+```bash
+curl http://localhost:8081/uppercase/abcd
+```
+
+or
+
+```bash
+curl http://localhost:8082/reverse/abcd
+```
+
+
+# Spring cloud functions riff
 
 ## Local build
 

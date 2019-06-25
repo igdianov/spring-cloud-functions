@@ -15,7 +15,7 @@ public class ReverseApplication {
     @Bean
     Function<String, String> reverse() {
         return input -> {
-            log.info("reverse input {}", input);
+            log.info("Reverse input {}", input);
             return new StringBuilder(input).reverse().toString();
         };
     }
