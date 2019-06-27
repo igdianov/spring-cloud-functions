@@ -1,0 +1,19 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: example-build
+spec:
+#  serviceAccountName: build-auth-example
+  source:
+    git:
+      url: https://github.com/lvivJavaClub/spring-cloud-functions.git
+      revision: init-knative
+  steps:
+    - name: hello
+      image: ubuntu
+      command: ["/bin/bash"]
+      args: ["-c", "echo Hello JavaClub"]
+    - name: checkout
+      image: ubuntu
+      command: ["/bin/bash"]
+      args: ["-c", "ls"]
