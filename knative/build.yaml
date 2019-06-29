@@ -3,17 +3,14 @@ kind: Build
 metadata:
   name: example-build
 spec:
-#  serviceAccountName: build-auth-example
+  serviceAccountName: knative-build
   source:
     git:
       url: https://github.com/lvivJavaClub/spring-cloud-functions.git
       revision: init-knative
   steps:
-    - name: hello
-      image: ubuntu
-      command: ["/bin/bash"]
-      args: ["-c", "echo Hello JavaClub"]
-    - name: checkout
-      image: ubuntu
-      command: ["/bin/bash"]
-      args: ["-c", "ls"]
+    - name: build-and-push
+      image: gcr.io/kaniko-project/executor:v0.1.0
+      args:
+        - --dockerfile=/workspace/Dockerfile
+        - --destination=gcr.io/star-wars-istio/spring-cloud-function
