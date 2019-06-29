@@ -1,8 +1,7 @@
 FROM maven:3.6.1-jdk-8 AS build
 
-WORKDIR /usr/app
+WORKDIR /usr/app/reverse-function
 
-RUN ls
 COPY pom.xml ./
 RUN mvn dependency:go-offline
 
