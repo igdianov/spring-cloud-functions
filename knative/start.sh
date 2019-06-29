@@ -17,7 +17,7 @@ kubectl create clusterrolebinding cluster-admin-binding \
 export ISTIO_HOME="$(dirname ${ISTIO_PATH})";
 kubectl apply -f ${ISTIO_HOME}/install/kubernetes/istio-demo.yaml;
 
-gcloud config set core/project PROJECT_ID
+gcloud config set core/project ${PROJECT_ID}
 
 gcloud services enable \
      cloudapis.googleapis.com \
