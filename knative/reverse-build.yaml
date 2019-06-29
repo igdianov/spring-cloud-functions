@@ -11,7 +11,7 @@ spec:
     subPath: reverse-function
   steps:
     - name: build-and-push-reverse
-      image: gcr.io/kaniko-project/executor:v0.6.0
+      image: gcr.io/kaniko-project/executor:v0.1.0
       args:
         - --dockerfile=/workspace/Dockerfile.test
         - --destination=gcr.io/star-wars-istio/reverse-function
