@@ -9,7 +9,7 @@ COPY reverse-function/src/ ./src/
 RUN mvn package
 
 
-FROM openjdk:8-jdk-alpine 
+FROM openjdk:8-jdk-alpine
 
 WORKDIR /usr/app
 
