@@ -1,0 +1,22 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: reverse-build
+spec:
+  serviceAccountName: knative-build
+  source:
+    git:
+      url: https://github.com/lvivJavaClub/spring-cloud-functions.git
+      revision: init-knative
+    subPath: reverse-function
+  steps:
+    - name: build-and-push-reverse
+      image: gcr.io/kaniko-project/executor:v0.10.0
+      args:
+        - --dockerfile=/workspace/reverse-function/Dockerfile
+        - --destination=gcr.io/star-wars-istio/reverse-function
+#    - name: build-and-push-uppercase
+#      image: gcr.io/kaniko-project/executor:v0.1.0
+#      args:
+#        - --dockerfile=/workspace/uppercase-function/Dockerfile
+#        - --destination=gcr.io/star-wars-istio/uppercase-function

@@ -9,13 +9,8 @@ spec:
       url: https://github.com/lvivJavaClub/spring-cloud-functions.git
       revision: init-knative
   steps:
-    - name: build-and-push-reverse
+    - name: build-and-push
       image: gcr.io/kaniko-project/executor:v0.1.0
       args:
-        - --dockerfile=/workspace/reverse-function/Dockerfile
-        - --destination=gcr.io/star-wars-istio/reverse-function
-#    - name: build-and-push-uppercase
-#      image: gcr.io/kaniko-project/executor:v0.1.0
-#      args:
-#        - --dockerfile=/workspace/uppercase-function/Dockerfile
-#        - --destination=gcr.io/star-wars-istio/uppercase-function
+        - --dockerfile=/workspace/Dockerfile
+        - --destination=gcr.io/star-wars-istio/spring-cloud-function

@@ -2,10 +2,10 @@ FROM maven:3.6.1-jdk-8 AS build
 
 WORKDIR /usr/app
 
-COPY reverse-function/pom.xml ./
+COPY pom.xml ./
 RUN mvn dependency:go-offline
 
-COPY reverse-function/src/ ./src/
+COPY src/ ./src/
 RUN mvn package
 
 
