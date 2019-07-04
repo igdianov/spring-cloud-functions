@@ -8,6 +8,4 @@ RUN mvn package
 
 ENV PORT 8080
 
-COPY /usr/app/target/reverse-*.jar ./reverse.jar
-
-CMD ["java", "-jar", "/usr/app/reverse.jar"]
+CMD ["java", "-jar", "/usr/app/target/reverse-0.0.1-SNAPSHOT.jar"]
