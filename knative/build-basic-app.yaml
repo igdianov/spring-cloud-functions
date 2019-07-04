@@ -14,7 +14,7 @@ spec:
   source:
     git:
       url: https://github.com/lvivJavaClub/spring-cloud-functions.git
-      revision: init-knative
+      revision: master
   steps:
     - name: build-and-push
       image: gcr.io/kaniko-project/executor:v0.1.0

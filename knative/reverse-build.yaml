@@ -14,7 +14,7 @@ spec:
   source:
     git:
       url: https://github.com/lvivJavaClub/spring-cloud-functions.git
-      revision: init-knative
+      revision: master
     subPath: uppercase-function
   steps:
     - name: build-and-push
