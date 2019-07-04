@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: knative-build
+secrets:
+  - name: knative-build-auth
+---
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: example-build
+spec:
+  serviceAccountName: knative-build
+  source:
+    git:
+      url: https://github.com/lvivJavaClub/spring-cloud-functions.git
+      revision: init-knative
+  steps:
+    - name: build-and-push
+      image: gcr.io/kaniko-project/executor:v0.1.0
+      args:
+        - --dockerfile=/workspace/Dockerfile
+        - --destination=gcr.io/star-wars-istio/spring-cloud-function
