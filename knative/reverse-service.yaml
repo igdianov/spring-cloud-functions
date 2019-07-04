@@ -1,0 +1,10 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: reverse-function
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/star-wars-istio/reverse-function

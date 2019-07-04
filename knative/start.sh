@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PROJECTID=${GKE_PORJECT_ID};
+export PROJECTID=${GKE_PORJECT_ID};
 
 # creating k8s cluster on GKE
 gcloud container clusters create istio-demo --project=${PROJECTID} \
