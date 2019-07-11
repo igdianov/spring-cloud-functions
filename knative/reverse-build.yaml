@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: knative-build-reverse
+  name: knative-build
 secrets:
   - name: knative-build-auth
 ---
@@ -15,13 +15,13 @@ spec:
     git:
       url: https://github.com/lvivJavaClub/spring-cloud-functions.git
       revision: master
-    subPath: uppercase-function
+    subPath: reverse-function
   steps:
     - name: build-and-push
       image: gcr.io/kaniko-project/executor:v0.1.0
       args:
         - --dockerfile=/workspace/Dockerfile
-        - --destination=gcr.io/star-wars-istio/uppercase-function
+        - --destination=gcr.io/star-wars-istio/reverse-function
 #    - name: build-and-push
 #      image: gcr.io/cloud-builders/mvn
 #      args: ["compile", "jib:build", "-Dimage=gcr.io/star-wars-istio/reverse-function"]

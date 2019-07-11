@@ -1,0 +1,44 @@
+apiVersion: messaging.knative.dev/v1alpha1
+kind: Sequence
+metadata:
+  name: sequence
+spec:
+  channelTemplate:
+    apiVersion: messaging.knative.dev/v1alpha1
+    kind: InMemoryChannel
+  steps:
+    - ref:
+        apiVersion: serving.knative.dev/v1alpha1
+        kind: Service
+        name: reverse-function
+    - ref:
+        apiVersion: serving.knative.dev/v1alpha1
+        kind: Service
+        name: uppercase-function
+  reply:
+    kind: Service
+    apiVersion: serving.knative.dev/v1alpha1
+    name: event-display
+---
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: event-display
+spec:
+  template:
+    spec:
+      containers:
+        - image: gcr.io/knative-releases/github.com/knative/eventing-sources/cmd/event_display
+---
+apiVersion: sources.eventing.knative.dev/v1alpha1
+kind: CronJobSource
+metadata:
+  name: cronjob-source
+spec:
+  schedule: "* * * * *"
+  data: 'Hello'
+
+  sink:
+    apiVersion: messaging.knative.dev/v1alpha1
+    kind: Sequence
+    name: sequence
